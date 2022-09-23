@@ -12,7 +12,7 @@ export const treemapRealtimeApis = Object.keys(MARKET_KR_NAMES).map(
     market,
     `${BASE_URLS.REALTIME}${treemapPath.realtime}?${
       getRealtimeApiSearchParams(
-        market as keyof typeof MARKET_KR_NAMES,
+        market as Market$Kr,
       )
     }`,
   ],
@@ -20,3 +20,12 @@ export const treemapRealtimeApis = Object.keys(MARKET_KR_NAMES).map(
   (acc, [market, apiUrl]) => Object.assign(acc, { [market]: apiUrl }),
   {},
 ) as Record<Market$Kr, string>;
+
+export const treemapRealtimeApisClient = Object.keys(MARKET_KR_NAMES)
+  .map((
+    market,
+  ) => [market, `/api/treemap/api/be?${new URLSearchParams({ market })}`])
+  .reduce(
+    (acc, [market, apiUrl]) => Object.assign(acc, { [market]: apiUrl }),
+    {},
+  ) as Record<Market$Kr, string>;
