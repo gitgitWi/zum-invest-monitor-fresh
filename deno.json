@@ -6,5 +6,17 @@
   "compilerOptions": {
     "jsx": "react-jsx",
     "jsxImportSource": "preact"
+  },
+  "fmt": {
+    "files": {
+      "include": ["components/", "constants/", "islands/", "routes/"]
+    },
+    "options": {
+      "indentWidth": 2,
+      "lineWidth": 90,
+      "singleQuote": true,
+      "useTabs": false,
+      "proseWrap": "preserve"
+    }
   }
 }
