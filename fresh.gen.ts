@@ -9,6 +9,7 @@ import * as $2 from './routes/index.tsx';
 import * as $$0 from './islands/ApiValidatorCard.tsx';
 import * as $$1 from './islands/Counter.tsx';
 import * as $$2 from './islands/RefreshButton.tsx';
+import * as $$3 from './islands/TreemapApiValidator.tsx';
 
 const manifest = {
   routes: {
@@ -20,6 +21,7 @@ const manifest = {
     './islands/ApiValidatorCard.tsx': $$0,
     './islands/Counter.tsx': $$1,
     './islands/RefreshButton.tsx': $$2,
+    './islands/TreemapApiValidator.tsx': $$3,
   },
   baseUrl: import.meta.url,
   config,

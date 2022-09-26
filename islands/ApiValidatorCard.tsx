@@ -1,6 +1,5 @@
 import { useState } from 'preact/hooks';
 
-import { CardTittle } from '../components/atoms/index.ts';
 import { CardCode } from '../components/molecules/index.ts';
 
 import RefreshButton from './RefreshButton.tsx';
@@ -12,18 +11,21 @@ interface ApiValidatorCardProps {
 }
 
 export default function ApiValidatorCard(
-  { apiUrl, originApiUrl, title }: ApiValidatorCardProps,
+  { apiUrl, originApiUrl }: ApiValidatorCardProps,
 ) {
   const [code, setCode] = useState('');
   const onRefreshButtonClick = () => {
+    setCode('');
     fetch(apiUrl).then((res) => res.json()).then((res) => setCode(res));
   };
 
   return (
-    <article class='w-4/5 place-self-center flex flex-col items-center'>
-      <div class='w-full flex justify-start items-center '>
-        <CardTittle text={title.toUpperCase()} />
-        <a class='px-2 text-base font-italic hover:text-underline' href={originApiUrl}>
+    <article class='w-full place-self-center flex flex-col items-center'>
+      <div class='w-full pb-2 flex justify-start items-center'>
+        <a
+          class='pr-2 text-base font-italic hover:text-underline'
+          href={originApiUrl}
+        >
           {originApiUrl}
         </a>
         <RefreshButton buttonClickHandler={onRefreshButtonClick} />
