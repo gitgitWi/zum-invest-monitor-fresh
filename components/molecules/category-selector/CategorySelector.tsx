@@ -1,7 +1,7 @@
 import { JSX } from 'preact/jsx-runtime';
 
-import { SelectorOption, SelectorOptionProps } from '../../atoms/index.ts';
-import { Market$Kr } from '../../../constants/apis/common.ts';
+import { SelectorOption, SelectorOptionProps } from '@/components/atoms/index.ts';
+import { Market$Kr } from '@/constants/apis/common.ts';
 
 interface CategorySelectorProps extends JSX.HTMLAttributes<HTMLSelectElement> {
   options: SelectorOptionProps[];
@@ -12,7 +12,7 @@ export function CategorySelector(
   { options, selectOption }: CategorySelectorProps,
 ) {
   const onSelectChange = (e: Event) => {
-    // @ts-ignore
+    // @ts-ignore: value maybe exist
     selectOption(e.currentTarget?.value || '');
   };
 

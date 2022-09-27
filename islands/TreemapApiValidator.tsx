@@ -1,14 +1,14 @@
 import { useState } from 'preact/hooks';
 
-import { type SelectorOptionProps } from '../components/atoms/index.ts';
-import { CategorySelector } from '../components/molecules/index.ts';
+import { type SelectorOptionProps } from '@/components/atoms/index.ts';
+import { CategorySelector } from '@/components/molecules/index.ts';
 import {
   type Market$Kr,
   treemapRealtimeApis,
   treemapRealtimeApisClient,
-} from '../constants/apis/index.ts';
+} from '@/constants/apis/mod.ts';
 
-import ApiValidatorCard from './ApiValidatorCard.tsx';
+import ApiValidatorCard from '@/islands/ApiValidatorCard.tsx';
 
 const categoryOptions: SelectorOptionProps[] = [
   {
@@ -45,7 +45,11 @@ export default function TreemapApiValidator() {
         apiUrl={treemapRealtimeApisClient[treemapMarketOption.value as Market$Kr]}
         originApiUrl={treemapRealtimeApis[treemapMarketOption.value as Market$Kr]}
         title={treemapMarketOption.name}
+        validateFunctionNames={[]}
       />
+
+      {/* updatedAt */}
+      <p></p>
     </div>
   );
 }

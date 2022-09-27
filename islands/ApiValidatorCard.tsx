@@ -1,22 +1,29 @@
 import { useState } from 'preact/hooks';
 
-import { CardCode } from '../components/molecules/index.ts';
+import { CardCode, ValidatorCard } from '@/components/molecules/index.ts';
 
-import RefreshButton from './RefreshButton.tsx';
+import RefreshButton from '@/islands/RefreshButton.tsx';
 
 interface ApiValidatorCardProps {
   apiUrl: string;
   originApiUrl: string;
   title: string;
+  validateFunctionNames: string[];
 }
 
 export default function ApiValidatorCard(
-  { apiUrl, originApiUrl }: ApiValidatorCardProps,
+  { apiUrl, originApiUrl, validateFunctionNames }: ApiValidatorCardProps,
 ) {
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [code, setCode] = useState('');
+
   const onRefreshButtonClick = () => {
     setCode('');
-    fetch(apiUrl).then((res) => res.json()).then((res) => setCode(res));
+    setIsLoading(true);
+    fetch(apiUrl).then((res) => res.json()).then((res) => {
+      setCode(res);
+      setIsLoading(false);
+    });
   };
 
   return (
@@ -30,7 +37,11 @@ export default function ApiValidatorCard(
         </a>
         <RefreshButton buttonClickHandler={onRefreshButtonClick} />
       </div>
+
       <CardCode text={code} />
+
+      {/* validate functions */}
+      <ValidatorCard title='$1' description='$1' result='$1' />
     </article>
   );
 }

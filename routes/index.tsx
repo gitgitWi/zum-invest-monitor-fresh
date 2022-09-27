@@ -1,6 +1,6 @@
-import { Title } from '../components/atoms/index.ts';
+import { Title } from '@/components/atoms/index.ts';
 
-import TreemapApiValidator from '../islands/TreemapApiValidator.tsx';
+import TreemapApiValidator from '@/islands/TreemapApiValidator.tsx';
 
 export default function Home() {
   return (

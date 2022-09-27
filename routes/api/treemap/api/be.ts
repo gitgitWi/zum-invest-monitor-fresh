@@ -1,7 +1,7 @@
 import { Handlers } from '$fresh/server.ts';
-import { Market$Kr } from '../../../../constants/apis/common.ts';
 
-import { treemapRealtimeApis } from '../../../../constants/apis/index.ts';
+import { Market$Kr } from '@/constants/apis/common.ts';
+import { treemapRealtimeApis } from '@/constants/apis/mod.ts';
 
 /**
  * - /api/treemap/api/be?market={kospi|kosdaq}
@@ -17,12 +17,10 @@ export const handler: Handlers = {
       });
     }
 
-    const data = await fetch(treemapRealtimeApis[market as Market$Kr]).then((res) =>
-      res.json()
+    const data = await fetch(treemapRealtimeApis[market as Market$Kr]).then(
+      (res) => res.json()
     );
 
-    return new Response(
-      JSON.stringify(data),
-    );
+    return new Response(JSON.stringify(data));
   },
 };
