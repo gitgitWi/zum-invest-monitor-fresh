@@ -1,4 +1,4 @@
-import { BASE_URLS, type Market$Kr, MARKET_KR_NAMES } from './common.ts';
+import { BASE_URLS, type Market$Kr, MARKET_KR_NAMES } from "@/constants/apis/common.ts";
 
 const treemapPath = { realtime: '/mekko-chart' };
 
