@@ -3,18 +3,20 @@
 // This file is automatically updated during development when running `dev.ts`.
 
 import config from './deno.json' assert { type: 'json' };
-import * as $0 from './routes/[name].tsx';
+import * as $0 from './routes/[notfound].tsx';
 import * as $1 from './routes/api/treemap/api/be.ts';
 import * as $2 from './routes/index.tsx';
+import * as $3 from './routes/validators/treemap.tsx';
 import * as $$0 from './islands/Counter.tsx';
 import * as $$1 from './islands/RefreshButton.tsx';
 import * as $$2 from './islands/TreemapApiValidator.tsx';
 
 const manifest = {
   routes: {
-    './routes/[name].tsx': $0,
+    './routes/[notfound].tsx': $0,
     './routes/api/treemap/api/be.ts': $1,
     './routes/index.tsx': $2,
+    './routes/validators/treemap.tsx': $3,
   },
   islands: {
     './islands/Counter.tsx': $$0,
