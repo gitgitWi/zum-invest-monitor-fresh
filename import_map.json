@@ -9,6 +9,10 @@
     "@preact/signals-core": "https://esm.sh/*@preact/signals-core@1.0.1",
     "twind": "https://esm.sh/twind@0.16.17",
     "twind/": "https://esm.sh/twind@0.16.17/",
-    "lucide": "https://esm.sh/lucide-preact@0.90.0"
+    "lucide": "https://esm.sh/lucide-preact@0.90.0",
+    "chart.js":"https://esm.sh/chart.js@3.9.1",
+    "chart.js/":"https://esm.sh/chart.js@3.9.1/",
+    "chartjs-treemap":"https://esm.sh/chartjs-chart-treemap@2.0.2",
+    "chartjs-treemap/":"https://esm.sh/chartjs-chart-treemap@2.0.2/"
   }
 }

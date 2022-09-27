@@ -9,8 +9,8 @@ const styles = {
   pagesHeader:
     'pb-4 font-extrabold text-3xl align-middle text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-green-500',
   pageLink:
-    'w-56 my-2 px-1 py-2 rounded-3xl font-medium bg-transparent border-b-2 border-gray-500 text-center \
-    hover:bg-blue-400 hover:text-white hover:font-bold hover:italic hover:border-blue-500 duration-100',
+    'w-56 m-2 px-1 py-2 rounded-3xl font-medium text-center border-b-2 border-grey-500 bg-gradient-to-r from-gray-50 to-gray-50 \
+    hover:from-green-300 hover:to-blue-300 hover:text-white hover:font-bold hover:italic hover:border-blue-500 duration-100',
 };
 
 export default function Home() {

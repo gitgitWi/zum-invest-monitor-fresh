@@ -1,3 +1,4 @@
+import { IS_BROWSER } from '$fresh/runtime.ts';
 import { useEffect, useState } from 'preact/hooks';
 
 import type { ValidatorResult } from '@/types/validator/mod.ts';
@@ -21,6 +22,16 @@ import {
 } from '@/utils/validators/treemap/mod.ts';
 
 import RefreshButton from './RefreshButton.tsx';
+import Chart, { treemapAdapter } from './Chart.tsx';
+
+const styles = {
+  container: 'mt-4 p-4 pt-0 w-full max-w-5xl flex flex-col items-start',
+  titleContainer: 'w-full flex justify-start items-center',
+  subtitle: 'w-max pr-2 font-bold text-2xl',
+  description: 'flex justify-start items-center pb-2',
+  apiLink:
+    'pr-2 text-base font-italic font-mono text-sm sm:text-base text-underline text-indigo-900',
+};
 
 const categoryOptions: SelectorOptionProps[] = [
   {
@@ -33,9 +44,25 @@ const categoryOptions: SelectorOptionProps[] = [
   },
 ];
 
+const setQueryStringMarket = (marketName: Market$Kr) => {
+  const updateSearch = new URLSearchParams(location.search);
+
+  if (updateSearch.get('market') === marketName) return;
+
+  updateSearch.set('market', marketName);
+  location.search = updateSearch.toString();
+};
+
 export default function TreemapApiValidator() {
+  const marketQuery = new URLSearchParams(
+    IS_BROWSER ? location.search : ''
+  ).get('market');
+
   const [treemapMarketOption, setTreemapMarketOption] =
-    useState<SelectorOptionProps>(categoryOptions[0]);
+    useState<SelectorOptionProps>(
+      categoryOptions.find(({ value }) => marketQuery === value) ||
+        categoryOptions[0]
+    );
   const [apiData, setApiData] = useState<
     Record<string, unknown> | unknown[] | ''
   >('');
@@ -48,6 +75,7 @@ export default function TreemapApiValidator() {
     setIsLoading(true);
     setApiData('');
     setValidatorResults([]);
+    setQueryStringMarket(treemapMarketOption.value as Market$Kr);
 
     fetch(treemapRealtimeApisClient[treemapMarketOption.value as Market$Kr])
       .then((res) => res.json())
@@ -71,13 +99,15 @@ export default function TreemapApiValidator() {
 
   useEffect(() => {
     fetchTreemapApi();
-    return () => {};
+    return () => {
+      treemapAdapter.destroy();
+    };
   }, [treemapMarketOption]);
 
   return (
-    <div class="mt-4 p-4 pt-0 w-full max-w-5xl flex flex-col items-start">
-      <div class="w-full flex justify-start items-center">
-        <h2 class="w-max pr-2 font-bold text-2xl">증시맵 API Validator</h2>
+    <div class={styles.container}>
+      <div class={styles.titleContainer}>
+        <h2 class={styles.subtitle}>증시맵 API Validator</h2>
 
         <CategorySelector
           options={categoryOptions}
@@ -86,9 +116,9 @@ export default function TreemapApiValidator() {
         />
       </div>
 
-      <div class="flex justify-start items-center pb-2">
+      <div class={styles.description}>
         <a
-          class="pr-2 text-base font-italic font-mono text-sm sm:text-base text-underline text-indigo-900"
+          class={styles.apiLink}
           href={treemapRealtimeApis[treemapMarketOption.value as Market$Kr]}
           target="_blank"
         >
@@ -106,6 +136,8 @@ export default function TreemapApiValidator() {
         validatorResults.map(({ isValid, values, message }) => (
           <ValidatorCard title={message!} isValid={isValid} data={values} />
         ))}
+
+      {validatorResults.length > 0 && <Chart data={apiData} />}
     </div>
   );
 }
