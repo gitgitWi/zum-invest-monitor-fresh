@@ -9,7 +9,7 @@ export default function Home() {
       <header class="w-full py-2 bg-blue-900">
         <Title text="Watch InvestZUM" />
       </header>
-      <main class="w-full h-full flex flex-col items-center">
+      <main class="w-full h-full mb-10 flex flex-col items-center">
         <TreemapApiValidator />
       </main>
       <Footer />
