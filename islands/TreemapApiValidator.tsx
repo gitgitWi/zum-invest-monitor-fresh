@@ -75,7 +75,7 @@ export default function TreemapApiValidator() {
   }, [treemapMarketOption]);
 
   return (
-    <div class="mt-4 w-full max-w-5xl flex flex-col items-start">
+    <div class="mt-4 p-4 pt-0 w-full max-w-5xl flex flex-col items-start">
       <div class="w-full flex justify-start items-center">
         <h2 class="w-max pr-2 font-bold text-2xl">증시맵 API Validator</h2>
 
@@ -88,8 +88,9 @@ export default function TreemapApiValidator() {
 
       <div class="flex justify-start items-center pb-2">
         <a
-          class="pr-2 text-base font-italic font-mono text-underline text-indigo-900"
+          class="pr-2 text-base font-italic font-mono text-sm sm:text-base text-underline text-indigo-900"
           href={treemapRealtimeApis[treemapMarketOption.value as Market$Kr]}
+          target="_blank"
         >
           {treemapRealtimeApis[treemapMarketOption.value as Market$Kr]}
         </a>
