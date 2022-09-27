@@ -35,8 +35,10 @@ export function ValidatorCard({
         <summary class="select-none cursor-pointer">데이터 확인</summary>
         <CardCode
           code={data}
-          classNames={'h-auto max-h-80 p-2 text-sm'.concat(
-            isValid ? ` bg-[rgb(247,254,231)]` : ' bg-[rgb(255,228,230)]'
+          classNames={'h-auto max-h-80 p-3 text-sm rounded-2xl '.concat(
+            isValid
+              ? ` from-[rgb(247,254,231)] to-[rgb(236,253,245)]`
+              : ' from-[rgb(255,228,230)] to-[rgb(255,241,242)]'
           )}
         />
       </details>

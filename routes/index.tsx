@@ -17,7 +17,7 @@ export default function Home() {
             Validator Pages
           </h2>
           {validatorPageRoutes.map(({ krName, to }) => (
-            <button class="w-1/4 my-2 px-1 py-2 rounded-3xl font-medium bg-transparent border-b-2 border-gray-500 hover:bg-blue-400 hover:text-white hover:font-bold hover:italic hover:border-blue-500 duration-100">
+            <button class="w-1/2 sm:w-1/4 my-2 px-1 py-2 rounded-3xl font-medium bg-transparent border-b-2 border-gray-500 hover:bg-blue-400 hover:text-white hover:font-bold hover:italic hover:border-blue-500 duration-100">
               <a href={to} class="w-full p-2 ">
                 {krName}
               </a>
