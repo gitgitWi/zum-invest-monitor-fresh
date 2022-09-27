@@ -14,7 +14,7 @@ export function ValidatorCard({
   data,
 }: ValidatorCardProps) {
   return (
-    <div class="w-full pl-6 flex flex-col justify-start items-start">
+    <div class="w-full pl-6 mb-4 flex flex-col justify-start items-start">
       <h3 class="w-full text-lg font-bold select-none">{title}</h3>
       <p class="flex items-baseline font-bold text-base select-none">
         결과:{' '}
@@ -31,12 +31,15 @@ export function ValidatorCard({
           {description}
         </p>
       )}
-      <CardCode
-        code={data}
-        classNames={'h-auto max-h-80 p-2 text-sm'.concat(
-          isValid ? ` bg-[rgb(247,254,231)]` : ' bg-[rgb(255,228,230)]'
-        )}
-      />
+      <details class="w-full p-2 mb-2 select-none duration-200" open={!isValid}>
+        <summary class="select-none cursor-pointer">데이터 확인</summary>
+        <CardCode
+          code={data}
+          classNames={'h-auto max-h-80 p-2 text-sm'.concat(
+            isValid ? ` bg-[rgb(247,254,231)]` : ' bg-[rgb(255,228,230)]'
+          )}
+        />
+      </details>
     </div>
   );
 }
