@@ -4,7 +4,7 @@ import { Footer } from '@/components/common/footer/mod.ts';
 
 import TreemapApiValidator from '@/islands/TreemapApiValidator.tsx';
 
-export default function Home() {
+export default function TreemapPage() {
   return (
     <>
       <$Head
