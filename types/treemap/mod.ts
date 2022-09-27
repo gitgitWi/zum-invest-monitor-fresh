@@ -1,1 +1,2 @@
-export * from './realtime-api.ts'
+export * from './core.ts';
+export * from './realtime-api.ts';
