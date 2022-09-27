@@ -1,3 +1,5 @@
+import { SubtitleH3 } from '@/components/atoms/subtitle-h3/SubtitleH3.tsx';
+
 import { CardCode } from '../index.ts';
 
 interface ValidatorCardProps {
@@ -15,7 +17,7 @@ export function ValidatorCard({
 }: ValidatorCardProps) {
   return (
     <div class="w-full pl-6 mb-4 flex flex-col justify-start items-start">
-      <h3 class="w-full text-lg font-bold select-none">{title}</h3>
+      <SubtitleH3 title={title} />
       <p class="flex items-baseline font-bold text-base select-none">
         결과:{' '}
         <p
