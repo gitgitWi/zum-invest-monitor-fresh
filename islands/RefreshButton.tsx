@@ -1,15 +1,19 @@
 import { RefreshCcw } from 'lucide';
 
-import { Button, ButtonProps } from '@/components/atoms/index.ts';
+import { Button } from '@/components/atoms/index.ts';
 
 interface RefreshButtonProps {
   buttonClickHandler: () => void;
+  isLoading: boolean;
 }
 
-export default function RefreshButton({ buttonClickHandler }: RefreshButtonProps) {
+export default function RefreshButton({
+  buttonClickHandler,
+  isLoading,
+}: RefreshButtonProps) {
   return (
     <Button onClick={buttonClickHandler}>
-      <RefreshCcw />
+      <RefreshCcw class={isLoading ? 'animate-spin' : 'hover:animate-spin'} />
     </Button>
   );
 }

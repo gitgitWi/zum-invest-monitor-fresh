@@ -1,9 +1,16 @@
 export interface CardCodeProps {
-  text: string | Record<string, unknown>;
+  code: unknown;
+  classNames?: string;
 }
 
-export function CardCode({ text }: CardCodeProps) {
-  return <pre class='w-full h-96 p-2 mb-4 overflow-y-auto font-mono text-sm bg-gray-300 rounded-lg'>
-      {typeof text === 'string' ? text : JSON.stringify(text, null, 2)}
-  </pre>;
+export function CardCode({ code, classNames = '' }: CardCodeProps) {
+  return (
+    <pre
+      class={'w-full h-96 p-2 mb-4 overflow-y-auto font-mono text-sm bg-gray-300 rounded-lg'.concat(
+        classNames
+      )}
+    >
+      {typeof code === 'string' ? code : JSON.stringify(code, null, 2)}
+    </pre>
+  );
 }
