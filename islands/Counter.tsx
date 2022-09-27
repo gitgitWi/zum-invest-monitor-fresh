@@ -1,5 +1,5 @@
 import { useState } from 'preact/hooks';
-import { Button } from '@/components/atoms/index.ts';
+import { Button } from '@/components/atoms/mod.ts';
 
 interface CounterProps {
   start: number;

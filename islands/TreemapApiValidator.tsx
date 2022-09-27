@@ -7,7 +7,7 @@ import {
   treemapRealtimeApis,
   treemapRealtimeApisClient,
 } from '@/constants/apis/mod.ts';
-import { type SelectorOptionProps } from '@/components/atoms/index.ts';
+import { type SelectorOptionProps } from '@/components/atoms/mod.ts';
 import {
   CardCode,
   CategorySelector,

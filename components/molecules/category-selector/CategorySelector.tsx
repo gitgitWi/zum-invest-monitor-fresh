@@ -1,9 +1,6 @@
 import { JSX } from 'preact/jsx-runtime';
 
-import {
-  SelectorOption,
-  SelectorOptionProps,
-} from '@/components/atoms/index.ts';
+import { SelectorOption, SelectorOptionProps } from '@/components/atoms/mod.ts';
 import { Market$Kr } from '@/constants/apis/common.ts';
 
 interface CategorySelectorProps extends JSX.HTMLAttributes<HTMLSelectElement> {
