@@ -1,6 +1,6 @@
 import { RefreshCcw } from 'lucide';
 
-import { Button } from '@/components/atoms/index.ts';
+import { Button } from '@/components/atoms/mod.ts';
 
 interface RefreshButtonProps {
   buttonClickHandler: () => void;
