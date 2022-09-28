@@ -1,6 +1,6 @@
 # Watch InvestZUM
 
-> https://watch-zum-invest.deno.dev/
+> https://w-iz.deno.dev/
 
 ## 줌투자 API, 컴포넌트 모니터링 페이지
 
