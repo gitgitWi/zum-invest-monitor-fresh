@@ -1,7 +1,7 @@
 import { $Head } from '@/components/common/head/mod.ts';
 import { Header } from '@/components/common/header/mod.ts';
 import { Footer } from '@/components/common/footer/mod.ts';
-import { validatorPageRoutes } from '../constants/routes.ts';
+import { validatorPageRoutes } from '@/constants/routes.ts';
 
 const styles = {
   body: 'w-full h-screen flex flex-col items-center',
