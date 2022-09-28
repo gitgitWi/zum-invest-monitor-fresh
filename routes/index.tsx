@@ -5,7 +5,7 @@ import { validatorPageRoutes } from '../constants/routes.ts';
 
 const styles = {
   body: 'w-full h-screen flex flex-col items-center',
-  main: 'w-full h-full mb-10 flex flex-col items-center justify-center',
+  main: 'w-full h-full py-12 flex flex-col items-center justify-start',
   pagesHeader:
     'pb-4 font-extrabold text-3xl align-middle text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-green-500',
   pageLink:
