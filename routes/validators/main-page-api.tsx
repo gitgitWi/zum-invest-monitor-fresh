@@ -7,7 +7,7 @@ export default function MainNewsPage() {
   return (
     <>
       <$Head
-        title="MainNews - WIZ"
+        title="MainPageAPI - WIZ"
         description="watch && validate Invest ZUM API"
       />
       <Header />
