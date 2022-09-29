@@ -2,8 +2,10 @@ import { useEffect, useState } from 'preact/hooks';
 import { ChevronsRight } from 'lucide';
 
 import type { ValidatorResult } from '@/types/validator/mod.ts';
+import type { Home$Api } from '@/types/main-page/home-api.ts';
 
 import { HOME_APIS, HOME_APIS_CLIENT } from '@/constants/apis/mod.ts';
+import { ApiLink } from '@/components/atoms/mod.ts';
 import {
   CardCode,
   ImageLi,
@@ -13,15 +15,12 @@ import {
 import { validateMainNews } from '@/utils/validators/main-page/mod.ts';
 
 import RefreshButton from './RefreshButton.tsx';
-import { Home$Api } from '../types/main-page/home-api.ts';
 
 const styles = {
   container: 'mt-4 p-4 pt-0 w-full max-w-5xl flex flex-col items-start',
   titleContainer: 'w-full flex justify-start items-center',
   subtitle: 'w-max pr-2 font-bold text-2xl',
-  description: 'flex justify-start items-center pb-2',
-  apiLink:
-    'pr-2 text-base font-italic font-mono text-sm sm:text-base text-underline text-indigo-900',
+  description: 'w-full flex justify-start items-center pb-2',
   codeCard: 'relative w-full flex items-start',
   codeCardHeightToggleButton:
     'absolute w-6 h-6 right-6 top-3 rounded-full duration-500 cursor-pointer',
@@ -31,7 +30,7 @@ export default function HomeApiValidator() {
   const [apiData, setApiData] = useState<Home$Api | unknown | ''>('');
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [validatorResults, setValidatorResults] = useState<ValidatorResult[]>(
-    []
+    [],
   );
 
   const [isApiResultHeightFull, toggleIsApiResultHeightFull] =
@@ -53,7 +52,7 @@ export default function HomeApiValidator() {
         (rej) => {
           setApiData(rej);
           setIsLoading(false);
-        }
+        },
       );
   };
 
@@ -72,9 +71,8 @@ export default function HomeApiValidator() {
       </div>
 
       <div class={styles.description}>
-        <a class={styles.apiLink} href={HOME_APIS.homeFront} target="_blank">
-          {HOME_APIS.homeFront}
-        </a>
+        <ApiLink link={HOME_APIS.homeFront} />
+
         <RefreshButton
           buttonClickHandler={fetchMainPageApi}
           isLoading={isLoading}
@@ -112,7 +110,7 @@ export default function HomeApiValidator() {
                   title={`오늘의 주요뉴스 상단 #${idx + 1}`}
                   imgSrc={thumbnail}
                 />
-              )
+              ),
             )}
             {(apiData as Home$Api).mainNews.subNewsItems.map(
               ({ thumbnail }, idx) => (
@@ -120,7 +118,7 @@ export default function HomeApiValidator() {
                   title={`오늘의 주요뉴스 하단 #${idx + 1}`}
                   imgSrc={thumbnail}
                 />
-              )
+              ),
             )}
           </ul>
         )}
