@@ -25,10 +25,10 @@ const treemapImageUrls = {
 
 export default function TreemapImageValidator() {
   return (
-    <div class="p-4 pt-0 mt-4 max-w-5xl flex flex-col justify-start">
+    <div class="w-full p-4 pt-0 mt-4 max-w-5xl flex flex-col justify-start">
       <SubtitleH3 title="증시맵 이미지" />
 
-      <ul class="w-full flex flex-col">
+      <ul class="w-full flex flex-col justify-start items-start">
         {Object.entries(treemapImageUrls)
           .map(([market, devices]) =>
             Object.entries(devices).map(([device, imageUrl]) => (
