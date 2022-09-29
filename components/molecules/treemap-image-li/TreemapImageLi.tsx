@@ -10,6 +10,7 @@ const styles = {
   anchor:
     'font-italic font-mono text-underline \
     hover:text-blue-700 hover:font-semibold duration-100',
+  image: 'w-full max-h-96 object-contain',
 };
 
 export function TreemapImageLi({ title, imgSrc }: TreemapImageProps) {
@@ -22,7 +23,7 @@ export function TreemapImageLi({ title, imgSrc }: TreemapImageProps) {
           {imgSrc}
         </a>
       </p>
-      <img src={imgSrc} alt="" />
+      <img src={imgSrc} alt="" class={styles.image} />
     </li>
   );
 }
