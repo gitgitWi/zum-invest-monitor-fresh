@@ -4,7 +4,7 @@ import { Market$Kr } from '@/constants/apis/common.ts';
 import { treemapRealtimeApis } from '@/constants/apis/mod.ts';
 
 /**
- * - /api/treemap/api/be?market={kospi|kosdaq}
+ * - /api/treemap/be?market={kospi|kosdaq}
  */
 export const handler: Handlers = {
   async GET(req) {
