@@ -1,8 +1,8 @@
-import {
+import type {
   Treemap$Sector$RealtimeApi,
   Treemap$Stock$RealtimeApi,
 } from '@/types/treemap/mod.ts';
-import { ValidatorResult } from '@/types/validator/mod.ts';
+import type { ValidatorResult } from '@/types/validator/mod.ts';
 
 export const getSectorsNumber = (
   apiData: Treemap$Sector$RealtimeApi[]
