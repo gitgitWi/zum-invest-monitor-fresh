@@ -1,5 +1,6 @@
 import { IS_BROWSER } from '$fresh/runtime.ts';
 import { useEffect, useState } from 'preact/hooks';
+import { ChevronsRight } from 'lucide';
 
 import type { ValidatorResult } from '@/types/validator/mod.ts';
 
@@ -31,6 +32,9 @@ const styles = {
   description: 'flex justify-start items-center pb-2',
   apiLink:
     'pr-2 text-base font-italic font-mono text-sm sm:text-base text-underline text-indigo-900',
+  codeCard: 'relative w-full flex items-start',
+  codeCardHeightToggleButton:
+    'absolute w-6 h-6 right-6 top-3 rounded-full duration-500 cursor-pointer',
 };
 
 const categoryOptions: SelectorOptionProps[] = [
@@ -71,6 +75,9 @@ export default function TreemapApiValidator() {
     []
   );
 
+  const [isApiResultHeightFull, toggleIsApiResultHeightFull] =
+    useState<boolean>(false);
+
   const fetchTreemapApi = () => {
     setIsLoading(true);
     setApiData('');
@@ -95,6 +102,10 @@ export default function TreemapApiValidator() {
       categoryOptions.find(({ value }) => value === marketName) ||
         categoryOptions[0]
     );
+  };
+
+  const onCardCodeHeightFullButtonClick = () => {
+    return toggleIsApiResultHeightFull((prev) => !prev);
   };
 
   useEffect(() => {
@@ -130,7 +141,22 @@ export default function TreemapApiValidator() {
         />
       </div>
 
-      <CardCode code={apiData} />
+      <div class={styles.codeCard}>
+        <CardCode
+          code={apiData}
+          height={isApiResultHeightFull ? 'h-1/3 max-h-[900px]' : ''}
+        />
+        {apiData && (
+          <ChevronsRight
+            // className='duration-150 animate-spin'
+            class={[
+              styles.codeCardHeightToggleButton,
+              isApiResultHeightFull ? 'rotate-[450deg]' : '',
+            ].join(' ')}
+            onClick={onCardCodeHeightFullButtonClick}
+          />
+        )}
+      </div>
 
       {validatorResults.length > 0 &&
         validatorResults.map(({ isValid, values, message }) => (
