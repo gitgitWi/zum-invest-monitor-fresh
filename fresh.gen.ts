@@ -4,30 +4,36 @@
 
 import config from './deno.json' assert { type: 'json' };
 import * as $0 from './routes/[...notfound].tsx';
-import * as $1 from './routes/api/treemap/api/be.ts';
-import * as $2 from './routes/index.tsx';
-import * as $3 from './routes/validators/treemap-apis.tsx';
-import * as $4 from './routes/validators/treemap-images.tsx';
+import * as $1 from './routes/api/home/fe.ts';
+import * as $2 from './routes/api/treemap/be.ts';
+import * as $3 from './routes/index.tsx';
+import * as $4 from './routes/validators/main-page-api.tsx';
+import * as $5 from './routes/validators/treemap-apis.tsx';
+import * as $6 from './routes/validators/treemap-images.tsx';
 import * as $$0 from './islands/Chart.tsx';
 import * as $$1 from './islands/Counter.tsx';
-import * as $$2 from './islands/RefreshButton.tsx';
-import * as $$3 from './islands/TreemapApiValidator.tsx';
-import * as $$4 from './islands/TreemapImageValidator.tsx';
+import * as $$2 from './islands/HomeApiValidator.tsx';
+import * as $$3 from './islands/RefreshButton.tsx';
+import * as $$4 from './islands/TreemapApiValidator.tsx';
+import * as $$5 from './islands/TreemapImageValidator.tsx';
 
 const manifest = {
   routes: {
     './routes/[...notfound].tsx': $0,
-    './routes/api/treemap/api/be.ts': $1,
-    './routes/index.tsx': $2,
-    './routes/validators/treemap-apis.tsx': $3,
-    './routes/validators/treemap-images.tsx': $4,
+    './routes/api/home/fe.ts': $1,
+    './routes/api/treemap/be.ts': $2,
+    './routes/index.tsx': $3,
+    './routes/validators/main-page-api.tsx': $4,
+    './routes/validators/treemap-apis.tsx': $5,
+    './routes/validators/treemap-images.tsx': $6,
   },
   islands: {
     './islands/Chart.tsx': $$0,
     './islands/Counter.tsx': $$1,
-    './islands/RefreshButton.tsx': $$2,
-    './islands/TreemapApiValidator.tsx': $$3,
-    './islands/TreemapImageValidator.tsx': $$4,
+    './islands/HomeApiValidator.tsx': $$2,
+    './islands/RefreshButton.tsx': $$3,
+    './islands/TreemapApiValidator.tsx': $$4,
+    './islands/TreemapImageValidator.tsx': $$5,
   },
   baseUrl: import.meta.url,
   config,

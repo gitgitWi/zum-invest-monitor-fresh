@@ -1,5 +1,5 @@
 import { SubtitleH3 } from '@/components/atoms/mod.ts';
-import { TreemapImageLi } from '@/components/molecules/index.ts';
+import { ImageLi } from '@/components/molecules/index.ts';
 
 const treemapImageUrls = {
   top1000: {
@@ -32,7 +32,7 @@ export default function TreemapImageValidator() {
         {Object.entries(treemapImageUrls)
           .map(([market, devices]) =>
             Object.entries(devices).map(([device, imageUrl]) => (
-              <TreemapImageLi
+              <ImageLi
                 title={`${device}-${market}`.toUpperCase()}
                 imgSrc={imageUrl}
               />
