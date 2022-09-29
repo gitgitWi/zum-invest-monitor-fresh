@@ -4,10 +4,16 @@ import { ChevronsRight } from 'lucide';
 import type { ValidatorResult } from '@/types/validator/mod.ts';
 
 import { HOME_APIS, HOME_APIS_CLIENT } from '@/constants/apis/mod.ts';
-import { CardCode, ValidatorCard } from '@/components/molecules/index.ts';
+import {
+  CardCode,
+  ImageLi,
+  ValidatorCard,
+} from '@/components/molecules/index.ts';
+
+import { validateMainNews } from '@/utils/validators/main-page/mod.ts';
 
 import RefreshButton from './RefreshButton.tsx';
-import Chart, { treemapAdapter } from './Chart.tsx';
+import { Home$Api } from '../types/main-page/home-api.ts';
 
 const styles = {
   container: 'mt-4 p-4 pt-0 w-full max-w-5xl flex flex-col items-start',
@@ -21,10 +27,8 @@ const styles = {
     'absolute w-6 h-6 right-6 top-3 rounded-full duration-500 cursor-pointer',
 };
 
-export default function TreemapApiValidator() {
-  const [apiData, setApiData] = useState<
-    Record<string, unknown> | unknown[] | ''
-  >('');
+export default function HomeApiValidator() {
+  const [apiData, setApiData] = useState<Home$Api | unknown | ''>('');
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [validatorResults, setValidatorResults] = useState<ValidatorResult[]>(
     []
@@ -33,18 +37,24 @@ export default function TreemapApiValidator() {
   const [isApiResultHeightFull, toggleIsApiResultHeightFull] =
     useState<boolean>(false);
 
-  const fetchTreemapApi = () => {
+  const fetchMainPageApi = () => {
     setIsLoading(true);
     setApiData('');
     setValidatorResults([]);
 
     fetch(HOME_APIS_CLIENT.homeFront)
       .then((res) => res.json())
-      .then((data) => {
-        setApiData((_prev) => data);
-        setIsLoading(false);
-        setValidatorResults([]);
-      });
+      .then(
+        (data) => {
+          setApiData((_prev: unknown) => data);
+          setIsLoading(false);
+          setValidatorResults([validateMainNews(data)]);
+        },
+        (rej) => {
+          setApiData(rej);
+          setIsLoading(false);
+        }
+      );
   };
 
   const onCardCodeHeightFullButtonClick = () => {
@@ -52,10 +62,7 @@ export default function TreemapApiValidator() {
   };
 
   useEffect(() => {
-    fetchTreemapApi();
-    return () => {
-      treemapAdapter.destroy();
-    };
+    fetchMainPageApi();
   }, []);
 
   return (
@@ -69,7 +76,7 @@ export default function TreemapApiValidator() {
           {HOME_APIS.homeFront}
         </a>
         <RefreshButton
-          buttonClickHandler={fetchTreemapApi}
+          buttonClickHandler={fetchMainPageApi}
           isLoading={isLoading}
         />
       </div>
@@ -96,7 +103,27 @@ export default function TreemapApiValidator() {
           <ValidatorCard title={message!} isValid={isValid} data={values} />
         ))}
 
-      {validatorResults.length > 0 && <Chart data={apiData} />}
+      {validatorResults.length > 0 &&
+        validatorResults.every((result) => result.isValid) && (
+          <ul class="w-full flex flex-col">
+            {(apiData as Home$Api).mainNews.templatedNews.items.map(
+              ({ thumbnail }, idx) => (
+                <ImageLi
+                  title={`오늘의 주요뉴스 상단 #${idx + 1}`}
+                  imgSrc={thumbnail}
+                />
+              )
+            )}
+            {(apiData as Home$Api).mainNews.subNewsItems.map(
+              ({ thumbnail }, idx) => (
+                <ImageLi
+                  title={`오늘의 주요뉴스 하단 #${idx + 1}`}
+                  imgSrc={thumbnail}
+                />
+              )
+            )}
+          </ul>
+        )}
     </div>
   );
 }

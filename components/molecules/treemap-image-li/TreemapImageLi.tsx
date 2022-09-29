@@ -1,10 +1,10 @@
-interface TreemapImageProps {
+interface ImageLiProps {
   title: string;
   imgSrc: string;
 }
 
 const styles = {
-  li: 'my-2 p-4 rounded-xl flex flex-col bg-gray-100',
+  li: 'my-2 p-4 rounded-xl flex flex-col bg-gray-100 hover:bg-gray-200',
   title: 'font-bold select-none',
   url: 'text-xs whitespace-pre-wrap my-2',
   anchor:
@@ -13,7 +13,7 @@ const styles = {
   image: 'w-full max-h-96 object-contain',
 };
 
-export function TreemapImageLi({ title, imgSrc }: TreemapImageProps) {
+export function ImageLi({ title, imgSrc }: ImageLiProps) {
   return (
     <li class={styles.li}>
       <p class={styles.title}>{title}</p>
@@ -23,7 +23,7 @@ export function TreemapImageLi({ title, imgSrc }: TreemapImageProps) {
           {imgSrc}
         </a>
       </p>
-      <img src={imgSrc} alt="" class={styles.image} />
+      <img src={imgSrc} alt="" class={styles.image} loading="lazy" />
     </li>
   );
 }

@@ -12,7 +12,7 @@ import * as $5 from './routes/validators/treemap-apis.tsx';
 import * as $6 from './routes/validators/treemap-images.tsx';
 import * as $$0 from './islands/Chart.tsx';
 import * as $$1 from './islands/Counter.tsx';
-import * as $$2 from './islands/MainNewsApiValidator.tsx';
+import * as $$2 from './islands/HomeApiValidator.tsx';
 import * as $$3 from './islands/RefreshButton.tsx';
 import * as $$4 from './islands/TreemapApiValidator.tsx';
 import * as $$5 from './islands/TreemapImageValidator.tsx';
@@ -30,7 +30,7 @@ const manifest = {
   islands: {
     './islands/Chart.tsx': $$0,
     './islands/Counter.tsx': $$1,
-    './islands/MainNewsApiValidator.tsx': $$2,
+    './islands/HomeApiValidator.tsx': $$2,
     './islands/RefreshButton.tsx': $$3,
     './islands/TreemapApiValidator.tsx': $$4,
     './islands/TreemapImageValidator.tsx': $$5,
