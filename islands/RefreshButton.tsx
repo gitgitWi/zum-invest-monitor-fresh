@@ -7,20 +7,20 @@ interface RefreshButtonProps {
   isLoading: boolean;
 }
 
-const defaultIconStyles = 'p-1';
+const styles = {
+  button: 'w-full ml-2 bg-[#0891b2] text-white hover:bg-[#164e63] duration-75',
+  icon: 'p-1',
+} as const;
 
 export default function RefreshButton({
   buttonClickHandler,
   isLoading,
 }: RefreshButtonProps) {
   return (
-    <Button
-      onClick={buttonClickHandler}
-      classNames="w-full ml-2 bg-[#0891b2] text-white"
-    >
+    <Button onClick={buttonClickHandler} classNames={styles.button}>
       <RefreshCcw
         class={[
-          defaultIconStyles,
+          styles.icon,
           isLoading ? 'animate-spin' : 'hover:animate-spin',
         ].join(' ')}
       />
