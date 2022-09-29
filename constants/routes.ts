@@ -14,9 +14,14 @@ export const validatorPageRoutes: Readonly<PageRoute[]> = [
   //   to: validatorsHomeRoute,
   // },
   {
-    name: 'treemap-validators',
-    krName: '증시맵 API',
-    to: `${validatorsHomeRoute}/treemap`,
+    name: 'treemap-apis-validator',
+    krName: '국내 증시맵 API',
+    to: `${validatorsHomeRoute}/treemap-apis`,
+  },
+  {
+    name: 'treemap-images-validator',
+    krName: '국내 증시맵 이미지',
+    to: `${validatorsHomeRoute}/treemap-images`,
   },
 ];
 

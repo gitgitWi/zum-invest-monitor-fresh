@@ -6,24 +6,28 @@ import config from './deno.json' assert { type: 'json' };
 import * as $0 from './routes/[...notfound].tsx';
 import * as $1 from './routes/api/treemap/api/be.ts';
 import * as $2 from './routes/index.tsx';
-import * as $3 from './routes/validators/treemap.tsx';
+import * as $3 from './routes/validators/treemap-apis.tsx';
+import * as $4 from './routes/validators/treemap-images.tsx';
 import * as $$0 from './islands/Chart.tsx';
 import * as $$1 from './islands/Counter.tsx';
 import * as $$2 from './islands/RefreshButton.tsx';
 import * as $$3 from './islands/TreemapApiValidator.tsx';
+import * as $$4 from './islands/TreemapImageValidator.tsx';
 
 const manifest = {
   routes: {
     './routes/[...notfound].tsx': $0,
     './routes/api/treemap/api/be.ts': $1,
     './routes/index.tsx': $2,
-    './routes/validators/treemap.tsx': $3,
+    './routes/validators/treemap-apis.tsx': $3,
+    './routes/validators/treemap-images.tsx': $4,
   },
   islands: {
     './islands/Chart.tsx': $$0,
     './islands/Counter.tsx': $$1,
     './islands/RefreshButton.tsx': $$2,
     './islands/TreemapApiValidator.tsx': $$3,
+    './islands/TreemapImageValidator.tsx': $$4,
   },
   baseUrl: import.meta.url,
   config,

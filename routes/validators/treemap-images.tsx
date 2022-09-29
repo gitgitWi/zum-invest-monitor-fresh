@@ -2,18 +2,18 @@ import { $Head } from '@/components/common/head/mod.ts';
 import { Header } from '@/components/common/header/mod.ts';
 import { Footer } from '@/components/common/footer/mod.ts';
 
-import TreemapApiValidator from '@/islands/TreemapApiValidator.tsx';
+import TreemapImageValidator from '@/islands/TreemapImageValidator.tsx';
 
-export default function TreemapPage() {
+export default function TreemapImagePage() {
   return (
     <>
       <$Head
-        title="TreemapAPI - WIZ"
+        title="TreemapImages - WIZ"
         description="watch && validate Invest ZUM API"
       />
       <Header />
-      <main class="w-full h-full mb-10 flex flex-col items-center">
-        <TreemapApiValidator />
+      <main class="w-full h-full pb-16 flex flex-col items-center">
+        <TreemapImageValidator />
       </main>
       <Footer />
     </>

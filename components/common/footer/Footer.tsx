@@ -2,7 +2,7 @@ import { Github } from 'lucide';
 
 export function Footer() {
   return (
-    <footer class="fixed bottom-0 w-full py-2 overflow-x-hidden flex justify-center items-center bg-gray-200 ">
+    <footer class="fixed bottom-0 w-full py-2 overflow-x-hidden flex justify-center items-center bg-gradient-to-b from-transparent to-gray-300">
       <button class="w-max p-0 flex items-center">
         <a href="https://fresh.deno.dev" target="_blank">
           <img
