@@ -21,7 +21,7 @@ export function CategorySelector({
 
   return (
     <select
-      class="w-max min-w-[80px] py-1 px-2 rounded-2xl text-center text-xl font-bold"
+      class="w-max min-w-[100px] py-1 px-2 rounded-2xl border text-center bg-white text-gray-700"
       onChange={onSelectChange}
       value={currentOption.value}
     >

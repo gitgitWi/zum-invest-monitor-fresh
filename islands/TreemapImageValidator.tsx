@@ -1,4 +1,4 @@
-import { SubtitleH3 } from '@/components/atoms/mod.ts';
+import { SubtitleH2, SubtitleH3 } from '@/components/atoms/mod.ts';
 import { ImageLi } from '@/components/molecules/index.ts';
 
 const treemapImageUrls = {
@@ -26,7 +26,7 @@ const treemapImageUrls = {
 export default function TreemapImageValidator() {
   return (
     <div class="w-full p-4 pt-0 mt-4 max-w-5xl flex flex-col justify-start">
-      <SubtitleH3 title="증시맵 이미지" />
+      <SubtitleH2 title="증시맵 이미지" />
 
       <ul class="w-full flex flex-col justify-start items-start">
         {Object.entries(treemapImageUrls)
@@ -36,7 +36,7 @@ export default function TreemapImageValidator() {
                 title={`${device}-${market}`.toUpperCase()}
                 imgSrc={imageUrl}
               />
-            ))
+            )),
           )
           .flat()}
       </ul>

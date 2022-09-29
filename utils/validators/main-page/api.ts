@@ -53,7 +53,7 @@ export const validateMainNews = ({ mainNews }: Home$Api): ValidatorResult => {
         }
 
         return false;
-      }
+      },
     );
 
   return {
@@ -61,7 +61,7 @@ export const validateMainNews = ({ mainNews }: Home$Api): ValidatorResult => {
       topNewses.length >= 2 &&
       subNewses.length >= 6 &&
       invalidNews.length === 0,
-    message: '오늘의 주요뉴스: 뉴스 개수 및 뉴스별 속성값 확인',
+    message: '뉴스 개수 및 뉴스별 속성값 확인',
     values: { invalidNews, topNewses, subNewses },
   };
 };
