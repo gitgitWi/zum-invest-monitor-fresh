@@ -1,6 +1,5 @@
 import { $Head } from '@/components/common/head/mod.ts';
 import { Header } from '@/components/common/header/mod.ts';
-import { Footer } from '@/components/common/footer/mod.ts';
 
 import HomeApiValidator from '@/islands/HomeApiValidator.tsx';
 
@@ -15,7 +14,6 @@ export default function MainNewsPage() {
       <main class="w-full h-full pb-16 flex flex-col items-center">
         <HomeApiValidator />
       </main>
-      <Footer />
     </>
   );
 }
