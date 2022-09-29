@@ -5,7 +5,7 @@ export interface CardCodeProps {
 }
 
 const codeStyleBase =
-  'w-full h-48 p-2 mb-4 overflow-y-auto font-mono text-sm bg-gradient-to-b from-gray-300 to-gray-100 rounded-lg';
+  'w-full h-48 p-2 my-2 overflow-y-auto font-mono text-sm bg-gradient-to-b from-gray-300 to-gray-100 rounded-lg';
 
 export function CardCode({
   code,

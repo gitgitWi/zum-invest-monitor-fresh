@@ -16,13 +16,13 @@ export function ValidatorCard({
   data,
 }: ValidatorCardProps) {
   return (
-    <div class="w-full pl-6 mb-4 flex flex-col justify-start items-start">
+    <div class="w-full p-4 pl-6 pb-2 mb-4 flex flex-col justify-start items-start bg-gray-100 rounded-xl">
       <SubtitleH3 title={title} />
-      <p class="flex items-baseline font-bold text-base select-none">
+      <p class="flex items-center text-base select-none text-gray-700">
         결과:{' '}
         <p
-          class={'m-1 text-2xl text-red-600'.concat(
-            isValid ? ` text-[rgb(54,83,20)]` : ' text-[rgb(136,19,55)]'
+          class={'m-1 text-lg font-bold'.concat(
+            isValid ? ` text-blue-600` : ' text-[rgb(225,29,72)]',
           )}
         >
           {isValid ? '정상' : '확인 필요'}
@@ -33,15 +33,18 @@ export function ValidatorCard({
           {description}
         </p>
       )}
-      <details class="w-full p-2 mb-2 select-none duration-200" open={!isValid}>
-        <summary class="select-none cursor-pointer">데이터 확인</summary>
+      <details
+        class="w-full py-2 mb-2 select-none duration-200"
+        open={!isValid}
+      >
+        <summary class="select-none cursor-pointer text-gray-600 text-sm">
+          데이터 확인
+        </summary>
         <CardCode
           code={data}
-          classNames={'h-auto max-h-80 p-3 text-sm rounded-2xl '.concat(
-            isValid
-              ? ` from-[rgb(247,254,231)] to-[rgb(236,253,245)]`
-              : ' from-[rgb(255,228,230)] to-[rgb(255,241,242)]'
-          )}
+          classNames={
+            'h-auto max-h-80 p-3 text-xs rounded-2xl from-gray-50 to-gray-50 border'
+          }
         />
       </details>
     </div>

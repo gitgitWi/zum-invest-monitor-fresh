@@ -9,7 +9,11 @@ import {
   treemapRealtimeApis,
   treemapRealtimeApisClient,
 } from '@/constants/apis/mod.ts';
-import { type SelectorOptionProps, ApiLink } from '@/components/atoms/mod.ts';
+import {
+  type SelectorOptionProps,
+  ApiLink,
+  SubtitleH2,
+} from '@/components/atoms/mod.ts';
 import {
   CardCode,
   CategorySelector,
@@ -27,9 +31,8 @@ import Chart, { treemapAdapter } from './Chart.tsx';
 
 const styles = {
   container: 'mt-4 p-4 pt-0 w-full max-w-5xl flex flex-col items-start',
-  titleContainer: 'w-full flex justify-start items-center',
-  subtitle: 'w-max pr-2 font-bold text-2xl',
-  description: 'w-full flex justify-start items-center pb-2',
+  titleContainer: 'w-full flex justify-start items-center mb-2',
+  description: 'w-full flex justify-end items-center my-2',
   codeCard: 'relative w-full flex items-start',
   codeCardHeightToggleButton:
     'absolute w-6 h-6 right-6 top-3 rounded-full duration-500 cursor-pointer',
@@ -116,8 +119,22 @@ export default function TreemapApiValidator() {
   return (
     <div class={styles.container}>
       <div class={styles.titleContainer}>
-        <h2 class={styles.subtitle}>증시맵 API Validator</h2>
+        <SubtitleH2 title="증시맵 API Validator" />
+      </div>
 
+      <div class="w-full flex justify-between mb-2">
+        <ApiLink
+          link={treemapRealtimeApis[treemapMarketOption.value as Market$Kr]}
+          classNames="w-full"
+        />
+
+        <RefreshButton
+          buttonClickHandler={fetchTreemapApi}
+          isLoading={isLoading}
+        />
+      </div>
+
+      <div class={styles.description}>
         <CategorySelector
           options={categoryOptions}
           currentOption={treemapMarketOption}
@@ -125,20 +142,11 @@ export default function TreemapApiValidator() {
         />
       </div>
 
-      <div class={styles.description}>
-        <ApiLink
-          link={treemapRealtimeApis[treemapMarketOption.value as Market$Kr]}
-        />
-        <RefreshButton
-          buttonClickHandler={fetchTreemapApi}
-          isLoading={isLoading}
-        />
-      </div>
-
       <div class={styles.codeCard}>
         <CardCode
           code={apiData}
           height={isApiResultHeightFull ? 'h-1/3 max-h-[900px]' : ''}
+          classNames="border from-gray-50 to-gray-50 text-xs mb-4"
         />
         {apiData && (
           <ChevronsRight
