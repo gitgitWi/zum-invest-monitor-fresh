@@ -105,7 +105,7 @@ export default function HomeApiValidator() {
 
       {validatorResults.length > 0 &&
         validatorResults.every((result) => result.isValid) && (
-          <ul class="w-full flex flex-col">
+          <ul class="w-full grid grid-cols-2 gap-x-4 gap-y-2">
             {(apiData as Home$Api).mainNews.templatedNews.items.map(
               ({ thumbnail }, idx) => (
                 <ImageLi
